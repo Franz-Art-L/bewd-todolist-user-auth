@@ -14,14 +14,17 @@ Rails.application.routes.draw do
   get    '/my_tasks'                 => 'tasks#index_by_current_user'
 
   # USERS
-  post   '/users'                    => 'users#create'
+  post   '/users'                    => 'users#create' # user sign up
 
   # SESSIONS
-  post   '/sessions'                 => 'sessions#create'
-  get    '/authenticated'            => 'sessions#authenticated'
+  post   '/sessions'                 => 'sessions#create' # log in
+
+  get    '/authenticated'            => 'sessions#authenticated' # to check if the user is logged in or not
+  
   delete '/sessions'                 => 'sessions#destroy'
 
   # Add routes below above line
+ 
 
   # Redirect all other paths to index page, which will be taken over by AngularJS
   get '*path'    => 'homepage#index'
